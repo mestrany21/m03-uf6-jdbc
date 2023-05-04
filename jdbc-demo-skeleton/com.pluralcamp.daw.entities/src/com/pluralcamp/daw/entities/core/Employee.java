@@ -154,7 +154,7 @@ public class Employee implements Comparable<Employee> {
     }
 
     public int getAge() {
-        var period = Period.between(this.getBirthDate(), LocalDate.now());
+        Period period = Period.between(this.getBirthDate(), LocalDate.now()); // aqui ell posa var pero no em funciona
         return period.getYears();
     }
 
@@ -171,7 +171,7 @@ public class Employee implements Comparable<Employee> {
     //<editor-fold desc="Overrides: Sobreescritura de mￃﾩtodos">
     @Override
     public String toString() {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(); // aqui ell posa var pero no em funciona
         sb.append("----------------------------------------------------\n");
         sb.append("   E M P L O Y E E                                  \n");
         sb.append("----------------------------------------------------\n");
