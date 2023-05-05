@@ -1,8 +1,8 @@
 package com.pluralcamp.daw.ui.console;
 
-import com.pluralcamp.daw.persistence.daos.contracts.ColorDAO;
+//import com.pluralcamp.daw.persistence.daos.contracts.ColorDAO;
 import com.pluralcamp.daw.persistence.daos.impl.jdbc.ColorDAOJDBCImpl;
-import com.pluralcamp.daw.persistence.daos.impl.jdbc.EventDAOJDBCImpl;
+//import com.pluralcamp.daw.persistence.daos.impl.jdbc.EventDAOJDBCImpl;
 
 import java.util.List;
 
@@ -13,28 +13,28 @@ import com.pluralcamp.daw.persistence.exceptions.DAOException;
 
 public class App {
     public static void main(String[] args) {
-        //Scanner tdin = new Scanner(System.in);
+        // Scanner tdin = new Scanner(System.in);
 
         ColorDAOJDBCImpl colorDAO = new ColorDAOJDBCImpl();
-        //EventDAOJDBCImpl eventDAO = new EventDAOJDBCImpl();
+        // EventDAOJDBCImpl eventDAO = new EventDAOJDBCImpl();
 
-        try{
-            Color c = colorDAO.getColorById(5); //aqui ell posa var pero no em funciona
-            if(c != null){
+        try {
+            var c = colorDAO.getColorById(5);
+            if (c != null) {
                 System.out.println(c.toString());
             }
-        }catch(DAOException ex){
+        } catch (DAOException ex) {
             System.out.printf("Error:: %s %n", ex.getMessage());
 
         }
         System.out.println("Clica una tecla per a continuar");
 
-        try{
+        try {
             List<Color> colors = colorDAO.getColors();
-            for(Color c : colors){
+            for (Color c : colors) {
                 System.out.println(c.toString());
             }
-        }catch(DAOException ex){
+        } catch (DAOException ex) {
             System.out.printf("Error:: %s %n", ex.getMessage());
 
         }
