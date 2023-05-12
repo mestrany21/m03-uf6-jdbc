@@ -1,18 +1,19 @@
 package com.pluralcamp.daw.persistence.daos.impl.jdbc;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.pluralcamp.daw.entities.core.Color;
 import com.pluralcamp.daw.persistence.daos.contracts.ColorDAO;
 import com.pluralcamp.daw.persistence.exceptions.DAOException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 public class ColorDAOJDBCImpl implements ColorDAO {
+
     @Override
     public Color getColorById(long id) throws DAOException {
 
@@ -28,11 +29,12 @@ public class ColorDAOJDBCImpl implements ColorDAO {
         Color color = null;
 
         try (
+
                 Connection connection = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/calendar?serverTimezone=Europe/Paris",
                         "meritxell_m03", "1234");
                 PreparedStatement sentSQL = connection
-                        .prepareStatement("SELECT id, name, red, green, blue FORM colors WHERE id = ?");) {
+                        .prepareStatement("SELECT id, name, red, green, blue FROM colors WHERE id = ?");) {
 
             sentSQL.setLong(1, id);
             try (ResultSet reader = sentSQL.executeQuery();) {

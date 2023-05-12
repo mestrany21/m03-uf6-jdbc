@@ -19,7 +19,7 @@ public class App {
         // EventDAOJDBCImpl eventDAO = new EventDAOJDBCImpl();
 
         try {
-            var c = colorDAO.getColorById(5);
+            Color c = colorDAO.getColorById(5);
             if (c != null) {
                 System.out.println(c.toString());
             }
