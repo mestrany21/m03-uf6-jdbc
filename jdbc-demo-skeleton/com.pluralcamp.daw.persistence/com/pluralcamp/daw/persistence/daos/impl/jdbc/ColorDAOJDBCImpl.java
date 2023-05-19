@@ -75,9 +75,9 @@ public class ColorDAOJDBCImpl implements ColorDAO {
         List<Color> colors = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/calendar?serverTimezone=Europe/Paris",
-                "meritxell_m03", "1234");
+                "meritxell_m03", "12345");
                 PreparedStatement sentSQL = connection
-                        .prepareStatement("SELECT id, name, red, green, blue FORM colors");
+                        .prepareStatement("SELECT id, name, red, green, blue FROM colors");
                 ResultSet reader = sentSQL.executeQuery();) {
             while (reader.next()) {
                 Color color = new Color(reader.getString("name"), reader.getInt("red"), reader.getInt("green"),

@@ -27,7 +27,7 @@ public class App {
             System.out.printf("Error:: %s %n", ex.getMessage());
 
         }
-        System.out.println("Clica una tecla per a continuar");
+        // System.out.println("Clica una tecla per a continuar");
 
         try {
             List<Color> colors = colorDAO.getColors();
@@ -38,6 +38,6 @@ public class App {
             System.out.printf("Error:: %s %n", ex.getMessage());
 
         }
-        System.out.println("Clica una tecla per a continuar");
+        // System.out.println("Clica una tecla per a continuar");
     }
 }
